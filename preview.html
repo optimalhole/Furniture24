@@ -1,0 +1,3785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Furniture24 | Premium Furniture in Wakad, Pune</title>
+<meta name="description" content="Furniture24 - Premium furniture, custom sofas, bedroom, dining, living room and office furniture in Wakad, Pune.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   FURNITURE24 - ONE FILE WEBSITE
+========================================================= */
+
+:root{
+    --dark:#26221f;
+    --dark2:#332b26;
+    --brown:#70503b;
+    --brown2:#967257;
+    --gold:#b4936c;
+    --cream:#f5f0e9;
+    --light:#faf8f5;
+    --white:#fff;
+    --muted:#77716c;
+    --border:#e6dfd7;
+    --shadow:0 18px 50px rgba(38,34,31,.10);
+    --radius:20px;
+    --serif:"Playfair Display",serif;
+    --sans:"DM Sans",sans-serif;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--sans);
+    background:var(--light);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+.serif{
+    font-family:var(--serif);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:var(--dark);
+    color:white;
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.7s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.loader-logo{
+    font-family:var(--serif);
+    font-size:42px;
+    letter-spacing:2px;
+}
+
+.loader-line{
+    width:100px;
+    height:1px;
+    background:var(--gold);
+    margin:20px auto;
+    animation:loaderLine 1.4s infinite;
+}
+
+@keyframes loaderLine{
+    0%{width:20px}
+    50%{width:110px}
+    100%{width:20px}
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:var(--dark);
+    color:white;
+    font-size:12px;
+    padding:9px 20px;
+    text-align:center;
+    letter-spacing:.5px;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    height:78px;
+    background:rgba(250,248,245,.96);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:5000;
+}
+
+.nav-inner{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo{
+    font-family:var(--serif);
+    font-size:29px;
+    font-weight:700;
+    white-space:nowrap;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--brown);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.nav-links a{
+    position:relative;
+    padding:29px 0;
+    white-space:nowrap;
+}
+
+.nav-links a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:21px;
+    width:0;
+    height:1px;
+    background:var(--brown);
+    transition:.3s;
+}
+
+.nav-links a:hover:after{
+    width:100%;
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    transition:.3s;
+    position:relative;
+}
+
+.icon-btn:hover{
+    background:var(--dark);
+    color:white;
+    transform:translateY(-2px);
+}
+
+.badge{
+    position:absolute;
+    top:-4px;
+    right:-3px;
+    min-width:17px;
+    height:17px;
+    background:var(--brown);
+    color:white;
+    border-radius:50%;
+    font-size:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.page{
+    display:none;
+    min-height:70vh;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-transition{
+    animation:pageIn .45s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:680px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    background:
+        linear-gradient(90deg,rgba(30,25,21,.82),rgba(30,25,21,.28)),
+        url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=90")
+        center/cover;
+}
+
+.hero-content{
+    color:white;
+    max-width:680px;
+    padding:100px 0;
+}
+
+.eyebrow{
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:18px;
+    color:var(--gold);
+}
+
+.hero h1{
+    font-family:var(--serif);
+    font-size:clamp(48px,7vw,84px);
+    line-height:1.02;
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.8;
+    color:#eee;
+    max-width:560px;
+    margin-bottom:34px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:14px 24px;
+    border-radius:3px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.3px;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.btn-primary{
+    background:white;
+    color:var(--dark);
+}
+
+.btn-primary:hover{
+    background:var(--gold);
+    color:white;
+    transform:translateY(-3px);
+}
+
+.btn-dark{
+    background:var(--dark);
+    color:white;
+}
+
+.btn-dark:hover{
+    background:var(--brown);
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    background:transparent;
+    color:inherit;
+    border:1px solid currentColor;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:var(--dark);
+}
+
+.hero-scroll{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+    padding:90px 0;
+}
+
+.section-head{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.section-title{
+    font-family:var(--serif);
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.1;
+}
+
+.section-desc{
+    color:var(--muted);
+    line-height:1.7;
+    max-width:520px;
+}
+
+.center{
+    text-align:center;
+}
+
+.center .section-desc{
+    margin:15px auto 0;
+}
+
+/* =========================================================
+   CATEGORY CARDS
+========================================================= */
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.category-card{
+    height:330px;
+    position:relative;
+    overflow:hidden;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+.category-card img{
+    height:100%;
+    object-fit:cover;
+    transition:transform .8s;
+}
+
+.category-card:hover img{
+    transform:scale(1.08);
+}
+
+.category-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:end;
+    padding:25px;
+    background:linear-gradient(transparent 35%,rgba(0,0,0,.72));
+    color:white;
+}
+
+.category-overlay h3{
+    font-family:var(--serif);
+    font-size:26px;
+}
+
+.category-overlay span{
+    display:block;
+    font-size:11px;
+    margin-top:5px;
+    opacity:.8;
+}
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
+.product-card{
+    background:white;
+    border:1px solid var(--border);
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.product-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.product-img{
+    height:280px;
+    overflow:hidden;
+    position:relative;
+    background:#eee;
+}
+
+.product-img img{
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.product-card:hover .product-img img{
+    transform:scale(1.06);
+}
+
+.product-wish{
+    position:absolute;
+    top:13px;
+    right:13px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,.9);
+    font-size:17px;
+    z-index:2;
+}
+
+.product-wish.active{
+    color:#a33;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-category{
+    color:var(--brown2);
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    font-weight:700;
+}
+
+.product-name{
+    font-family:var(--serif);
+    font-size:20px;
+    margin:8px 0;
+}
+
+.product-price{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.enquire-btn{
+    width:100%;
+    border:1px solid var(--dark);
+    background:white;
+    color:var(--dark);
+    padding:11px;
+    font-size:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.enquire-btn:hover{
+    background:var(--dark);
+    color:white;
+}
+
+/* =========================================================
+   DARK CUSTOM SECTION
+========================================================= */
+
+.custom-section{
+    background:var(--dark);
+    color:white;
+}
+
+.custom-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:70px;
+}
+
+.custom-image{
+    height:550px;
+    overflow:hidden;
+}
+
+.custom-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.custom-content h2{
+    font-family:var(--serif);
+    font-size:55px;
+    line-height:1.05;
+    margin-bottom:25px;
+}
+
+.custom-content p{
+    color:#c9c4bf;
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+.custom-list{
+    list-style:none;
+    margin-bottom:35px;
+}
+
+.custom-list li{
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    color:#ddd;
+}
+
+.custom-list li:before{
+    content:"✓";
+    color:var(--gold);
+    margin-right:12px;
+}
+
+/* =========================================================
+   WHY
+========================================================= */
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.why-card{
+    padding:35px 25px;
+    background:white;
+    border:1px solid var(--border);
+    text-align:center;
+}
+
+.why-icon{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.why-card h3{
+    font-family:var(--serif);
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.why-card p{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review-card{
+    background:white;
+    padding:30px;
+    border:1px solid var(--border);
+}
+
+.stars{
+    color:#b4936c;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.review-card p{
+    line-height:1.8;
+    color:#555;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.reviewer{
+    font-weight:700;
+    font-size:13px;
+}
+
+.rating-box{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.rating-number{
+    font-family:var(--serif);
+    font-size:70px;
+}
+
+.rating-sub{
+    color:var(--muted);
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    min-height:480px;
+}
+
+.map-info{
+    background:var(--cream);
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.map-info h2{
+    font-family:var(--serif);
+    font-size:46px;
+    margin-bottom:20px;
+}
+
+.map-info p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.map-frame{
+    min-height:480px;
+}
+
+.map-frame iframe{
+    width:100%;
+    height:100%;
+    min-height:480px;
+    border:0;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header{
+    background:var(--cream);
+    padding:90px 0;
+    text-align:center;
+}
+
+.page-header h1{
+    font-family:var(--serif);
+    font-size:clamp(42px,6vw,68px);
+}
+
+.breadcrumb{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================================================
+   SHOP TOOLBAR
+========================================================= */
+
+.shop-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    background:white;
+    border:1px solid var(--border);
+    padding:10px 17px;
+    font-size:12px;
+    transition:.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:var(--dark);
+    color:white;
+}
+
+.search-box{
+    display:flex;
+    border:1px solid var(--border);
+    background:white;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    padding:12px 14px;
+    width:220px;
+}
+
+.search-box button{
+    border:none;
+    background:white;
+    padding:0 14px;
+}
+
+/* =========================================================
+   PRODUCT DETAIL
+========================================================= */
+
+.product-detail{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+}
+
+.detail-image{
+    height:650px;
+    background:#eee;
+}
+
+.detail-image img{
+    height:100%;
+    object-fit:cover;
+}
+
+.detail-info{
+    padding:30px 0;
+}
+
+.detail-category{
+    color:var(--brown2);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.detail-info h1{
+    font-family:var(--serif);
+    font-size:52px;
+    line-height:1.1;
+    margin:15px 0;
+}
+
+.detail-price{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.detail-info>p{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.detail-points{
+    list-style:none;
+    border-top:1px solid var(--border);
+    margin-bottom:30px;
+}
+
+.detail-points li{
+    padding:13px 0;
+    border-bottom:1px solid var(--border);
+    font-size:13px;
+}
+
+.detail-points li:before{
+    content:"✓";
+    color:var(--brown);
+    margin-right:10px;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid var(--border);
+    background:white;
+    padding:14px;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--brown);
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-grid{
+    columns:3 280px;
+    column-gap:15px;
+}
+
+.gallery-item{
+    margin-bottom:15px;
+    break-inside:avoid;
+    overflow:hidden;
+}
+
+.gallery-item img{
+    transition:.6s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.04);
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+.faq-item{
+    background:white;
+    border-bottom:1px solid var(--border);
+}
+
+.faq-question{
+    padding:22px 5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    color:var(--muted);
+    line-height:1.8;
+    transition:.4s;
+}
+
+.faq-item.open .faq-answer{
+    max-height:300px;
+    padding:0 5px 22px;
+}
+
+.faq-item.open .faq-plus{
+    transform:rotate(45deg);
+}
+
+/* =========================================================
+   POLICY
+========================================================= */
+
+.policy{
+    max-width:850px;
+    margin:auto;
+}
+
+.policy h2{
+    font-family:var(--serif);
+    font-size:28px;
+    margin:35px 0 12px;
+}
+
+.policy p,
+.policy li{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.policy ul{
+    padding-left:20px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:var(--dark);
+    color:white;
+    padding:70px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+    gap:50px;
+}
+
+.footer-logo{
+    font-family:var(--serif);
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.footer-col p{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.footer-col h4{
+    margin-bottom:20px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin:11px 0;
+    color:#aaa;
+    font-size:13px;
+}
+
+.footer-links li a:hover{
+    color:white;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:50px;
+    padding-top:20px;
+    display:flex;
+    justify-content:space-between;
+    color:#888;
+    font-size:11px;
+}
+
+/* =========================================================
+   FLOATING ACTIONS
+========================================================= */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25d366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    z-index:4000;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+.mobile-bar{
+    display:none;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:30px;
+    transform:translate(-50%,100px);
+    background:var(--dark);
+    color:white;
+    padding:13px 20px;
+    font-size:13px;
+    z-index:10000;
+    opacity:0;
+    transition:.4s;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+    opacity:1;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .nav-links a{
+        font-size:12px;
+    }
+
+    .category-grid,
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:850px){
+
+    .navbar{
+        height:68px;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:68px;
+        left:0;
+        right:0;
+        background:var(--light);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 6%;
+        border-bottom:1px solid var(--border);
+        transform:translateY(-130%);
+        transition:.4s;
+        gap:0;
+        box-shadow:var(--shadow);
+    }
+
+    .nav-links.open{
+        transform:translateY(0);
+    }
+
+    .nav-links a{
+        width:100%;
+        padding:15px 0;
+    }
+
+    .nav-links a:after{
+        display:none;
+    }
+
+    .nav-actions .search-action,
+    .nav-actions .wishlist-action,
+    .nav-actions .cart-action{
+        display:none;
+    }
+
+    .menu-btn{
+        display:flex;
+    }
+
+    .hero{
+        min-height:620px;
+    }
+
+    .custom-grid,
+    .product-detail,
+    .map-grid{
+        grid-template-columns:1fr;
+    }
+
+    .custom-image{
+        height:420px;
+    }
+
+    .map-info{
+        padding:45px 25px;
+    }
+
+    .detail-image{
+        height:480px;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mobile-bar{
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        height:62px;
+        background:white;
+        border-top:1px solid var(--border);
+        z-index:3999;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .mobile-bar a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:12px;
+        font-weight:700;
+    }
+
+    .mobile-bar a:first-child{
+        background:var(--dark);
+        color:white;
+    }
+
+    .whatsapp{
+        bottom:78px;
+    }
+}
+
+@media(max-width:600px){
+
+    .topbar{
+        font-size:10px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .nav-actions{
+        gap:5px;
+    }
+
+    .icon-btn{
+        width:35px;
+        height:35px;
+    }
+
+    .hero-content{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .section{
+        padding:65px 0;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-desc{
+        margin-top:15px;
+    }
+
+    .category-grid,
+    .product-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .category-card{
+        height:300px;
+    }
+
+    .product-img{
+        height:300px;
+    }
+
+    .custom-content h2{
+        font-size:40px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-bottom{
+        display:block;
+        line-height:2;
+    }
+
+    .search-box input{
+        width:180px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-inner">
+        <div class="loader-logo">Furniture<span>24</span></div>
+        <div class="loader-line"></div>
+        <small>Furniture that feels like home.</small>
+    </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    CUSTOM FURNITURE • PREMIUM QUALITY • WAKAD, PUNE
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-inner">
+
+        <a href="#" class="logo" onclick="navigate('home')">
+            Furniture<span>24</span>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="navigate('home')">Home</a>
+            <a href="#" onclick="navigate('shop')">Shop</a>
+            <a href="#" onclick="navigate('category','Living Room')">Living</a>
+            <a href="#" onclick="navigate('category','Bedroom')">Bedroom</a>
+            <a href="#" onclick="navigate('category','Dining')">Dining</a>
+            <a href="#" onclick="navigate('category','Office')">Office</a>
+            <a href="#" onclick="navigate('custom')">Custom Furniture</a>
+            <a href="#" onclick="navigate('offers')">Offers</a>
+        </div>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn search-action" onclick="navigate('shop')" title="Search">
+                ⌕
+            </button>
+
+            <button class="icon-btn wishlist-action" onclick="navigate('wishlist')" title="Wishlist">
+                ♡
+                <span class="badge" id="wishCount">0</span>
+            </button>
+
+            <button class="icon-btn cart-action" onclick="navigate('cart')" title="Enquiry">
+                🛒
+                <span class="badge" id="cartCount">0</span>
+            </button>
+
+            <button class="icon-btn menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- ======================================================
+     HOME
+====================================================== -->
+
+<main id="home" class="page active">
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content reveal">
+            <div class="eyebrow">Furniture24 • Wakad • Pune</div>
+
+            <h1>
+                Furniture<br>
+                that feels<br>
+                like home.
+            </h1>
+
+            <p>
+                Discover thoughtfully designed furniture for modern Indian homes.
+                From ready-made collections to furniture customised around your
+                space, style and comfort.
+            </p>
+
+            <div class="buttons">
+                <button class="btn btn-primary" onclick="navigate('shop')">
+                    Explore Collection →
+                </button>
+
+                <button class="btn btn-outline" onclick="navigate('custom')">
+                    Custom Furniture
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-scroll">Scroll to explore ↓</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+
+    <div class="section-head reveal">
+        <div>
+            <div class="eyebrow">Explore</div>
+            <h2 class="section-title">Shop by category</h2>
+        </div>
+
+        <p class="section-desc">
+            Create a home that reflects your personality with furniture
+            designed for everyday living.
+        </p>
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card reveal" onclick="navigate('category','Sofas')">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <div>
+                    <h3>Sofas</h3>
+                    <span>Comfort meets character</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-card reveal" onclick="navigate('category','Bedroom')">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <div>
+                    <h3>Bedroom</h3>
+                    <span>Designed for restful spaces</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-card reveal" onclick="navigate('category','Dining')">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <div>
+                    <h3>Dining</h3>
+                    <span>Gather beautifully</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-card reveal" onclick="navigate('category','Living Room')">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85">
+            <div class="category-overlay">
+                <div>
+                    <h3>Living Room</h3>
+                    <span>Make it yours</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<section class="section" style="background:#f1ece5">
+<div class="container">
+
+    <div class="section-head reveal">
+        <div>
+            <div class="eyebrow">Furniture24 Collection</div>
+            <h2 class="section-title">Featured furniture</h2>
+        </div>
+
+        <button class="btn btn-dark" onclick="navigate('shop')">
+            View All
+        </button>
+    </div>
+
+    <div class="product-grid" id="homeProducts"></div>
+
+</div>
+</section>
+
+
+<section class="section custom-section">
+<div class="container">
+    <div class="custom-grid">
+
+        <div class="custom-image reveal">
+            <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=1200&q=90">
+        </div>
+
+        <div class="custom-content reveal">
+
+            <div class="eyebrow">Made around you</div>
+
+            <h2>
+                Your space.<br>
+                Your dimensions.<br>
+                Your furniture.
+            </h2>
+
+            <p>
+                Have something specific in mind? Furniture24 creates
+                customised furniture according to your dimensions,
+                design preferences, fabric and lifestyle.
+            </p>
+
+            <ul class="custom-list">
+                <li>Custom dimensions</li>
+                <li>Fabric & colour selection</li>
+                <li>Personalised designs</li>
+                <li>Made for your space</li>
+            </ul>
+
+            <button class="btn btn-primary" onclick="navigate('custom')">
+                Start Custom Design →
+            </button>
+
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+
+    <div class="section-head reveal">
+        <div>
+            <div class="eyebrow">Why Furniture24</div>
+            <h2 class="section-title">Made for real homes.</h2>
+        </div>
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card reveal">
+            <div class="why-icon">✦</div>
+            <h3>Quality</h3>
+            <p>
+                Furniture selected with attention to materials,
+                construction and everyday durability.
+            </p>
+        </div>
+
+        <div class="why-card reveal">
+            <div class="why-icon">⌂</div>
+            <h3>Custom Made</h3>
+            <p>
+                Customise dimensions, fabrics and designs
+                according to your space.
+            </p>
+        </div>
+
+        <div class="why-card reveal">
+            <div class="why-icon">◷</div>
+            <h3>Reliable Delivery</h3>
+            <p>
+                Smooth coordination from selection through
+                delivery.
+            </p>
+        </div>
+
+        <div class="why-card reveal">
+            <div class="why-icon">♡</div>
+            <h3>Personal Support</h3>
+            <p>
+                Friendly showroom assistance for choosing
+                the right furniture.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<section class="section" style="background:var(--cream)">
+<div class="container">
+
+    <div class="center reveal">
+        <div class="eyebrow">Customer experiences</div>
+        <h2 class="section-title">Loved by our customers</h2>
+        <p class="section-desc">
+            Furniture24 is rated 4.2/5 based on 153 Google reviews.
+        </p>
+    </div>
+
+    <div class="review-grid" style="margin-top:40px">
+
+        <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>
+                “Best furniture showroom in Wakad. Best quality
+                with affordable prices.”
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>
+                “They customise the sofa and deliver within
+                10 days. Just before taking the delivery do a
+                detailed check completely.”
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>
+                “The staff were very helpful, friendly and
+                professional. The furniture quality is excellent,
+                and the delivery was smooth and on time.”
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+    </div>
+
+    <div class="center" style="margin-top:35px">
+        <button class="btn btn-dark" onclick="navigate('reviews')">
+            Read More Reviews
+        </button>
+    </div>
+
+</div>
+</section>
+
+
+<section class="section" style="padding-bottom:0">
+<div class="container">
+
+    <div class="map-grid">
+
+        <div class="map-info reveal">
+
+            <div class="eyebrow">Visit us</div>
+
+            <h2>Come see it<br>for yourself.</h2>
+
+            <p>
+                Visit the Furniture24 showroom in Wakad, Pune
+                and explore our furniture collection in person.
+            </p>
+
+            <p>
+                <strong>Furniture24</strong><br>
+                Sr no 257, Mankar Chowk Rd,<br>
+                next to WHISTLING PALMS,<br>
+                Kaspate Wasti, Wakad,<br>
+                Pimpri-Chinchwad, Maharashtra 411057
+            </p>
+
+            <div class="buttons" style="margin-top:15px">
+
+                <a class="btn btn-dark"
+                   href="tel:09307471478">
+                    ☎ Call
+                </a>
+
+                <a class="btn btn-outline"
+                   href="https://wa.me/919307471478"
+                   target="_blank">
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="map-frame">
+            <iframe
+                src="https://www.google.com/maps?q=Furniture24%20Wakad%20Pune&output=embed"
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+
+<!-- ======================================================
+     SHOP
+====================================================== -->
+
+<section id="shop" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Shop Furniture</h1>
+        <div class="breadcrumb">Home / Shop</div>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="shop-toolbar">
+
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('All',this)">
+                All
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Sofas',this)">
+                Sofas
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Living Room',this)">
+                Living
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Bedroom',this)">
+                Bedroom
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Dining',this)">
+                Dining
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Office',this)">
+                Office
+            </button>
+
+            <button class="filter-btn" onclick="filterProducts('Storage',this)">
+                Storage
+            </button>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="Search furniture..."
+                oninput="searchProducts()">
+            <button>⌕</button>
+        </div>
+
+    </div>
+
+    <div class="product-grid" id="shopProducts"></div>
+
+</div>
+</section>
+</section>
+
+
+<!-- ======================================================
+     CATEGORY
+====================================================== -->
+
+<section id="category" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24 Collection</div>
+        <h1 id="categoryTitle">Collection</h1>
+        <div class="breadcrumb">
+            Home / Collection
+        </div>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="product-grid" id="categoryProducts"></div>
+
+</div>
+</section>
+
+</section>
+
+
+<!-- ======================================================
+     PRODUCT DETAIL
+====================================================== -->
+
+<section id="product" class="page">
+
+<section class="section">
+<div class="container">
+
+    <div class="product-detail">
+
+        <div class="detail-image">
+            <img id="detailImage" src="">
+        </div>
+
+        <div class="detail-info">
+
+            <div class="detail-category" id="detailCategory"></div>
+
+            <h1 id="detailName"></h1>
+
+            <div class="detail-price" id="detailPrice"></div>
+
+            <p id="detailDescription"></p>
+
+            <ul class="detail-points">
+                <li>Premium furniture construction</li>
+                <li>Customisation available</li>
+                <li>Showroom assistance</li>
+                <li>Delivery available in Pune</li>
+            </ul>
+
+            <div class="buttons">
+
+                <button class="btn btn-dark" id="detailEnquire">
+                    Enquire on WhatsApp
+                </button>
+
+                <button class="btn btn-outline" id="detailWishlist">
+                    ♡ Add to Wishlist
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+</section>
+
+
+<!-- ======================================================
+     CUSTOM FURNITURE
+====================================================== -->
+
+<section id="custom" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Custom Furniture</h1>
+        <div class="breadcrumb">Designed around your space</div>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="custom-grid">
+
+        <div class="custom-image">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=90">
+        </div>
+
+        <div>
+
+            <div class="eyebrow">Tell us what you need</div>
+
+            <h2 class="section-title" style="margin-bottom:15px">
+                Let's create something made for you.
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.8;margin-bottom:30px">
+                Share your requirements and our team can discuss
+                dimensions, design, materials, colours and other
+                customisation options.
+            </p>
+
+            <form onsubmit="submitCustom(event)">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input id="customName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input id="customPhone" type="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Furniture Type</label>
+                        <select id="customType">
+                            <option>Sofa</option>
+                            <option>Bed</option>
+                            <option>Wardrobe</option>
+                            <option>Dining Table</option>
+                            <option>TV Unit</option>
+                            <option>Office Furniture</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Approx. Budget</label>
+                        <select id="customBudget">
+                            <option>Under ₹25,000</option>
+                            <option>₹25,000 - ₹50,000</option>
+                            <option>₹50,000 - ₹1,00,000</option>
+                            <option>₹1,00,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Requirements</label>
+                        <textarea
+                            id="customMessage"
+                            placeholder="Tell us about dimensions, design, colour, fabric, etc."
+                            required></textarea>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-dark" type="submit">
+                    Send Requirement on WhatsApp →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+</section>
+
+
+<!-- ======================================================
+     ABOUT
+====================================================== -->
+
+<section id="about" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>About Us</h1>
+        <div class="breadcrumb">Our approach to furniture</div>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="custom-grid">
+
+        <div>
+            <div class="eyebrow">Our philosophy</div>
+
+            <h2 class="section-title">
+                Furniture should be beautiful,
+                useful and personal.
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.9;margin-top:25px">
+                Furniture24 is a furniture showroom and furniture maker
+                in Wakad, Pune. Our focus is on helping customers find
+                furniture that fits their homes, lifestyle and preferences.
+            </p>
+
+            <p style="color:var(--muted);line-height:1.9;margin-top:15px">
+                Alongside our ready furniture collections, we offer
+                customisation for customers who want something designed
+                around their particular space.
+            </p>
+        </div>
+
+        <div class="custom-image">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=90">
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+</section>
+
+
+<!-- ======================================================
+     GALLERY
+====================================================== -->
+
+<section id="gallery" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Gallery</h1>
+        <div class="breadcrumb">Furniture inspiration</div>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=85">
+        </div>
+
+    </div>
+
+</div>
+</section>
+</section>
+
+
+<!-- ======================================================
+     REVIEWS
+====================================================== -->
+
+<section id="reviews" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Customer Reviews</div>
+        <h1>What customers say</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container">
+
+    <div class="rating-box">
+        <div class="rating-number">4.2</div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-sub">153 Google Reviews</div>
+    </div>
+
+    <div class="review-grid">
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                Best furniture showroom in Wakad. Best quality
+                with affordable prices.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                They customise the sofa and deliver within
+                10 days. Before taking delivery, do a detailed
+                check completely.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                The staff were very helpful, friendly and
+                professional. The furniture quality is excellent,
+                and the delivery was smooth and on time.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                Highly recommended for furniture shopping in
+                the Wakad area.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                Good collection and helpful staff.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>
+                Good furniture options and customisation support.
+            </p>
+            <div class="reviewer">Google Customer</div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     OFFERS
+====================================================== -->
+
+<section id="offers" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Offers</h1>
+        <div class="breadcrumb">Current showroom offers</div>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container">
+
+    <div class="custom-grid">
+
+        <div>
+            <div class="eyebrow">Showroom enquiry</div>
+
+            <h2 class="section-title">
+                Looking for a better deal?
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.9;margin:20px 0">
+                Furniture prices and showroom offers can vary depending
+                on the selected furniture, material, dimensions and
+                customisation.
+            </p>
+
+            <p style="color:var(--muted);line-height:1.9;margin-bottom:30px">
+                Contact the Furniture24 team for the latest available
+                offer on the furniture you're interested in.
+            </p>
+
+            <a class="btn btn-dark"
+               href="https://wa.me/919307471478?text=Hello%20Furniture24%2C%20I%20want%20to%20know%20about%20your%20latest%20offers."
+               target="_blank">
+                Ask About Offers →
+            </a>
+        </div>
+
+        <div class="custom-image">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     CONTACT
+====================================================== -->
+
+<section id="contact" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Contact Us</h1>
+        <div class="breadcrumb">Let's talk furniture</div>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container">
+
+    <div class="custom-grid">
+
+        <div>
+
+            <div class="eyebrow">Furniture24 Showroom</div>
+
+            <h2 class="section-title">
+                We'd love to hear from you.
+            </h2>
+
+            <p style="color:var(--muted);line-height:1.8;margin:20px 0">
+                Have a question about furniture, customisation,
+                delivery or showroom availability?
+            </p>
+
+            <p style="line-height:2">
+                <strong>Phone</strong><br>
+                093074 71478
+            </p>
+
+            <p style="line-height:2;margin-top:15px">
+                <strong>Address</strong><br>
+                Sr no 257, Mankar Chowk Rd,<br>
+                next to WHISTLING PALMS,<br>
+                Kaspate Wasti, Wakad,<br>
+                Pimpri-Chinchwad, Maharashtra 411057
+            </p>
+
+            <div class="buttons" style="margin-top:25px">
+
+                <a class="btn btn-dark"
+                   href="tel:09307471478">
+                    Call Now
+                </a>
+
+                <a class="btn btn-outline"
+                   href="https://wa.me/919307471478"
+                   target="_blank">
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <form onsubmit="submitContact(event)">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input id="contactName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input id="contactPhone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input id="contactEmail" type="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="contactMessage" required></textarea>
+                </div>
+
+                <button class="btn btn-dark">
+                    Send via WhatsApp →
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     SHOWROOM
+====================================================== -->
+
+<section id="showroom" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Visit Our Showroom</h1>
+    </div>
+</div>
+
+<section class="section" style="padding-bottom:0">
+
+<div class="container">
+
+    <div class="map-grid">
+
+        <div class="map-info">
+
+            <div class="eyebrow">Wakad, Pune</div>
+
+            <h2>See the furniture in person.</h2>
+
+            <p>
+                Visit us at:
+            </p>
+
+            <p>
+                Sr no 257, Mankar Chowk Rd,<br>
+                next to WHISTLING PALMS,<br>
+                Kaspate Wasti, Wakad,<br>
+                Pimpri-Chinchwad, Maharashtra 411057
+            </p>
+
+            <a class="btn btn-dark"
+               href="https://www.google.com/maps/search/?api=1&query=Furniture24%20Wakad%20Pune"
+               target="_blank">
+                Open Google Maps →
+            </a>
+
+        </div>
+
+        <div class="map-frame">
+            <iframe
+                src="https://www.google.com/maps?q=Furniture24%20Wakad%20Pune&output=embed"
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     FAQ
+====================================================== -->
+
+<section id="faq" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Need Help?</div>
+        <h1>Frequently Asked Questions</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container">
+
+<div class="faq">
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            Do you offer custom furniture?
+            <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-answer">
+            Yes. Furniture24 offers customised furniture options.
+            Contact the showroom to discuss your dimensions,
+            design and material requirements.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            Can I visit the showroom?
+            <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-answer">
+            Yes. Furniture24 is located in Kaspate Wasti, Wakad,
+            Pimpri-Chinchwad, Maharashtra.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            Do you deliver furniture?
+            <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-answer">
+            Delivery options depend on the furniture and location.
+            Contact Furniture24 for details.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            Can I customise a sofa?
+            <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-answer">
+            Sofa customisation can be discussed with the showroom
+            team, including dimensions, fabric and design.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            How can I get a quotation?
+            <span class="faq-plus">+</span>
+        </div>
+        <div class="faq-answer">
+            Use the WhatsApp button or contact form to send your
+            requirements and the team can discuss your enquiry.
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     DELIVERY
+====================================================== -->
+
+<section id="delivery" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Delivery Information</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container policy">
+
+    <p>
+        Delivery timing and charges may depend on furniture type,
+        customisation, destination and availability. Please confirm
+        delivery details with Furniture24 before placing an order.
+    </p>
+
+    <h2>Before Delivery</h2>
+    <p>
+        Customers should ensure that access to the property,
+        staircases, lifts and doorways is suitable for the furniture.
+    </p>
+
+    <h2>Custom Furniture</h2>
+    <p>
+        Custom furniture may require additional preparation time.
+        The expected timeline should be confirmed with the showroom.
+    </p>
+
+    <h2>Inspection</h2>
+    <p>
+        Customers should inspect furniture carefully at the time
+        of delivery and report any concerns to the Furniture24 team.
+    </p>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     WARRANTY
+====================================================== -->
+
+<section id="warranty" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Warranty</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container policy">
+
+    <p>
+        Warranty coverage varies by product and material. The exact
+        warranty applicable to a product should be confirmed with
+        Furniture24 before purchase.
+    </p>
+
+    <h2>What to Keep</h2>
+    <ul>
+        <li>Purchase invoice</li>
+        <li>Product details</li>
+        <li>Delivery information</li>
+        <li>Any relevant photographs of an issue</li>
+    </ul>
+
+    <h2>Warranty Enquiries</h2>
+    <p>
+        Contact Furniture24 directly for assistance regarding a
+        product issue or warranty request.
+    </p>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     CARE GUIDE
+====================================================== -->
+
+<section id="care" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Furniture Care Guide</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container policy">
+
+    <h2>Wooden Furniture</h2>
+    <p>
+        Keep wooden surfaces dry and clean them using a soft cloth.
+        Avoid prolonged exposure to direct sunlight and moisture.
+    </p>
+
+    <h2>Sofas</h2>
+    <p>
+        Vacuum fabric surfaces regularly and immediately clean spills.
+        Follow the care instructions appropriate for the selected fabric.
+    </p>
+
+    <h2>Dining Furniture</h2>
+    <p>
+        Wipe spills promptly and avoid placing extremely hot objects
+        directly on furniture surfaces.
+    </p>
+
+    <h2>General Care</h2>
+    <p>
+        Avoid dragging heavy furniture. Lift items when moving them
+        and use suitable protective pads where appropriate.
+    </p>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     PRIVACY
+====================================================== -->
+
+<section id="privacy" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Legal</div>
+        <h1>Privacy Policy</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container policy">
+
+    <p>
+        This is a starter privacy policy template for the Furniture24
+        website. It should be reviewed and customised before the
+        website is launched commercially.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <p>
+        Information submitted through enquiry forms may include your
+        name, phone number, email address and furniture requirements.
+    </p>
+
+    <h2>How Information Is Used</h2>
+    <p>
+        Information may be used to respond to enquiries, provide
+        quotations and communicate regarding furniture requirements.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <p>
+        This website may use services such as Google Maps and
+        WhatsApp links.
+    </p>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     TERMS
+====================================================== -->
+
+<section id="terms" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Legal</div>
+        <h1>Terms & Conditions</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container policy">
+
+    <p>
+        This is a starter terms template and should be reviewed
+        and customised by the business before commercial launch.
+    </p>
+
+    <h2>Product Information</h2>
+    <p>
+        Furniture dimensions, colours, materials and appearance may
+        vary depending on the selected product and customisation.
+    </p>
+
+    <h2>Pricing</h2>
+    <p>
+        Prices and offers should be confirmed with Furniture24
+        before purchase.
+    </p>
+
+    <h2>Custom Furniture</h2>
+    <p>
+        Custom furniture requirements, dimensions, materials,
+        delivery timelines and pricing should be agreed before
+        production begins.
+    </p>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     WISHLIST
+====================================================== -->
+
+<section id="wishlist" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Your Wishlist</h1>
+    </div>
+</div>
+
+<section class="section">
+<div class="container">
+
+    <div class="product-grid" id="wishlistProducts"></div>
+
+    <div id="emptyWishlist"
+         style="text-align:center;color:var(--muted);padding:60px">
+        Your wishlist is empty.
+    </div>
+
+</div>
+</section>
+</section>
+
+
+<!-- ======================================================
+     CART / ENQUIRY
+====================================================== -->
+
+<section id="cart" class="page">
+
+<div class="page-header">
+    <div class="container">
+        <div class="eyebrow">Furniture24</div>
+        <h1>Your Enquiry</h1>
+    </div>
+</div>
+
+<section class="section">
+
+<div class="container">
+
+    <div id="cartItems"></div>
+
+    <div id="emptyCart"
+         style="text-align:center;color:var(--muted);padding:60px">
+        No furniture added yet.
+    </div>
+
+    <div id="cartActions"
+         style="display:none;margin-top:30px;text-align:right">
+
+        <button class="btn btn-dark" onclick="sendCartWhatsApp()">
+            Send Enquiry on WhatsApp →
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+    <div class="footer-col">
+
+        <div class="footer-logo">
+            Furniture<span style="color:var(--gold)">24</span>
+        </div>
+
+        <p>
+            Premium furniture and custom furniture solutions
+            for modern homes in Wakad and Pune.
+        </p>
+
+        <div class="buttons" style="margin-top:20px">
+
+            <a class="btn btn-outline"
+               href="https://wa.me/919307471478"
+               target="_blank">
+                WhatsApp
+            </a>
+
+            <a class="btn btn-outline"
+               href="tel:09307471478">
+                Call
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-col">
+
+        <h4>Shop</h4>
+
+        <ul class="footer-links">
+
+            <li><a href="#" onclick="navigate('shop')">All Furniture</a></li>
+            <li><a href="#" onclick="navigate('category','Sofas')">Sofas</a></li>
+            <li><a href="#" onclick="navigate('category','Living Room')">Living Room</a></li>
+            <li><a href="#" onclick="navigate('category','Bedroom')">Bedroom</a></li>
+            <li><a href="#" onclick="navigate('category','Dining')">Dining</a></li>
+            <li><a href="#" onclick="navigate('category','Office')">Office</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="footer-col">
+
+        <h4>Furniture24</h4>
+
+        <ul class="footer-links">
+
+            <li><a href="#" onclick="navigate('about')">About Us</a></li>
+            <li><a href="#" onclick="navigate('custom')">Custom Furniture</a></li>
+            <li><a href="#" onclick="navigate('gallery')">Gallery</a></li>
+            <li><a href="#" onclick="navigate('reviews')">Reviews</a></li>
+            <li><a href="#" onclick="navigate('showroom')">Showroom</a></li>
+            <li><a href="#" onclick="navigate('contact')">Contact</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="footer-col">
+
+        <h4>Help</h4>
+
+        <ul class="footer-links">
+
+            <li><a href="#" onclick="navigate('faq')">FAQ</a></li>
+            <li><a href="#" onclick="navigate('delivery')">Delivery</a></li>
+            <li><a href="#" onclick="navigate('warranty')">Warranty</a></li>
+            <li><a href="#" onclick="navigate('care')">Care Guide</a></li>
+            <li><a href="#" onclick="navigate('privacy')">Privacy Policy</a></li>
+            <li><a href="#" onclick="navigate('terms')">Terms</a></li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    <div>
+        © 2026 Furniture24. All rights reserved.
+    </div>
+
+    <div>
+        Wakad • Pimpri-Chinchwad • Pune
+    </div>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/919307471478"
+    target="_blank"
+    title="Chat on WhatsApp">
+    ☎
+</a>
+
+
+<!-- MOBILE CTA -->
+
+<div class="mobile-bar">
+
+    <a href="tel:09307471478">
+        ☎ Call Furniture24
+    </a>
+
+    <a
+        href="https://wa.me/919307471478"
+        target="_blank">
+        WhatsApp
+    </a>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* =========================================================
+   PRODUCT DATA
+========================================================= */
+
+const products = [
+
+{
+    id:1,
+    name:"Modern 3 Seater Sofa",
+    category:"Sofas",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=85",
+    description:"A contemporary three-seater sofa designed for comfortable everyday living."
+},
+
+{
+    id:2,
+    name:"L Shape Family Sofa",
+    category:"Sofas",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=1000&q=85",
+    description:"A spacious L-shaped sofa suitable for larger living spaces and family rooms."
+},
+
+{
+    id:3,
+    name:"Contemporary Lounge Chair",
+    category:"Living Room",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=1000&q=85",
+    description:"An accent lounge chair that adds character and comfort to your living space."
+},
+
+{
+    id:4,
+    name:"Modern King Bed",
+    category:"Bedroom",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85",
+    description:"A modern king-size bed designed to create a calm and comfortable bedroom."
+},
+
+{
+    id:5,
+    name:"Minimal Bedroom Bed",
+    category:"Bedroom",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85",
+    description:"Clean lines and timeless styling for contemporary bedrooms."
+},
+
+{
+    id:6,
+    name:"6 Seater Dining Set",
+    category:"Dining",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1000&q=85",
+    description:"A stylish dining setup designed for family meals and entertaining."
+},
+
+{
+    id:7,
+    name:"Modern Office Desk",
+    category:"Office",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",
+    description:"A clean modern workstation for productive home or professional spaces."
+},
+
+{
+    id:8,
+    name:"Contemporary TV Unit",
+    category:"Living Room",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1000&q=85",
+    description:"A modern entertainment unit with a clean architectural appearance."
+},
+
+{
+    id:9,
+    name:"Sliding Wardrobe",
+    category:"Storage",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1000&q=85",
+    description:"Space-efficient wardrobe storage designed for modern bedrooms."
+},
+
+{
+    id:10,
+    name:"Accent Armchair",
+    category:"Living Room",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=85",
+    description:"A statement accent chair for reading corners and relaxed spaces."
+},
+
+{
+    id:11,
+    name:"Premium Dining Table",
+    category:"Dining",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1000&q=85",
+    description:"A refined dining table designed around modern dining spaces."
+},
+
+{
+    id:12,
+    name:"Executive Work Table",
+    category:"Office",
+    price:"Enquire for Price",
+    image:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85",
+    description:"A sophisticated work table suitable for home offices and professional spaces."
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let wishlist =
+    JSON.parse(localStorage.getItem("f24Wishlist")) || [];
+
+let cart =
+    JSON.parse(localStorage.getItem("f24Cart")) || [];
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+        document.getElementById("loader")
+            .classList.add("hide");
+    },700);
+
+    renderHomeProducts();
+    renderShopProducts();
+    updateCounts();
+    revealElements();
+
+});
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function navigate(page,param=""){
+
+    event?.preventDefault();
+
+    document.querySelectorAll(".page")
+        .forEach(p=>{
+            p.classList.remove("active");
+            p.classList.remove("page-transition");
+        });
+
+    let target;
+
+    if(page==="category"){
+
+        target=document.getElementById("category");
+
+        document.getElementById("categoryTitle")
+            .textContent=param;
+
+        renderCategory(param);
+
+    }else{
+
+        target=document.getElementById(page);
+
+    }
+
+    if(!target){
+        target=document.getElementById("home");
+    }
+
+    target.classList.add("active");
+
+    setTimeout(()=>{
+        target.classList.add("page-transition");
+    },10);
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    document.getElementById("navLinks")
+        ?.classList.remove("open");
+
+    if(page==="wishlist"){
+        renderWishlist();
+    }
+
+    if(page==="cart"){
+        renderCart();
+    }
+
+    revealElements();
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    document.getElementById("navLinks")
+        .classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(product){
+
+    const liked=wishlist.includes(product.id);
+
+    return `
+
+    <div class="product-card reveal">
+
+        <div
+            class="product-img"
+            onclick="openProduct(${product.id})">
+
+            <button
+                class="product-wish ${liked?'active':''}"
+                onclick="event.stopPropagation();toggleWishlist(${product.id})">
+                ${liked?'♥':'♡'}
+            </button>
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy">
+
+        </div>
+
+        <div class="product-info">
+
+            <div class="product-category">
+                ${product.category}
+            </div>
+
+            <div
+                class="product-name"
+                onclick="openProduct(${product.id})"
+                style="cursor:pointer">
+                ${product.name}
+            </div>
+
+            <div class="product-price">
+                ${product.price}
+            </div>
+
+            <button
+                class="enquire-btn"
+                onclick="addToCart(${product.id})">
+                + ADD TO ENQUIRY
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+/* =========================================================
+   HOME PRODUCTS
+========================================================= */
+
+function renderHomeProducts(){
+
+    document.getElementById("homeProducts")
+        .innerHTML=
+        products
+        .slice(0,8)
+        .map(productCard)
+        .join("");
+
+}
+
+
+/* =========================================================
+   SHOP PRODUCTS
+========================================================= */
+
+function renderShopProducts(list=products){
+
+    document.getElementById("shopProducts")
+        .innerHTML=
+        list.length
+        ? list.map(productCard).join("")
+        : `<div style="grid-column:1/-1;text-align:center;padding:70px;color:#777">
+             No furniture found.
+           </div>`;
+
+    revealElements();
+
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+function renderCategory(category){
+
+    const list=
+        products.filter(
+            p=>p.category===category
+        );
+
+    document.getElementById("categoryProducts")
+        .innerHTML=
+        list.length
+        ? list.map(productCard).join("")
+        : `<div style="grid-column:1/-1;text-align:center;padding:70px">
+            No products found in this category.
+           </div>`;
+
+    revealElements();
+
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterProducts(category,btn){
+
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(b=>b.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    if(category==="All"){
+
+        renderShopProducts(products);
+
+    }else{
+
+        renderShopProducts(
+            products.filter(
+                p=>p.category===category
+            )
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts(){
+
+    const query=
+        document
+        .getElementById("productSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filtered=
+        products.filter(p=>
+            p.name.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query)
+        );
+
+    renderShopProducts(filtered);
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL
+========================================================= */
+
+function openProduct(id){
+
+    const product=
+        products.find(p=>p.id===id);
+
+    if(!product)return;
+
+    document.getElementById("detailImage")
+        .src=product.image;
+
+    document.getElementById("detailName")
+        .textContent=product.name;
+
+    document.getElementById("detailCategory")
+        .textContent=product.category;
+
+    document.getElementById("detailPrice")
+        .textContent=product.price;
+
+    document.getElementById("detailDescription")
+        .textContent=product.description;
+
+    document.getElementById("detailEnquire")
+        .onclick=()=>{
+            whatsappProduct(product);
+        };
+
+    document.getElementById("detailWishlist")
+        .onclick=()=>{
+            toggleWishlist(product.id);
+        };
+
+    navigate("product");
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(id){
+
+    if(wishlist.includes(id)){
+
+        wishlist=
+            wishlist.filter(x=>x!==id);
+
+        showToast("Removed from wishlist");
+
+    }else{
+
+        wishlist.push(id);
+
+        showToast("Added to wishlist");
+
+    }
+
+    localStorage.setItem(
+        "f24Wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    updateCounts();
+
+    renderHomeProducts();
+    renderShopProducts();
+
+}
+
+
+/* =========================================================
+   RENDER WISHLIST
+========================================================= */
+
+function renderWishlist(){
+
+    const list=
+        products.filter(
+            p=>wishlist.includes(p.id)
+        );
+
+    const container=
+        document.getElementById("wishlistProducts");
+
+    const empty=
+        document.getElementById("emptyWishlist");
+
+    if(!list.length){
+
+        container.innerHTML="";
+        empty.style.display="block";
+
+    }else{
+
+        empty.style.display="none";
+        container.innerHTML=
+            list.map(productCard).join("");
+
+    }
+
+    revealElements();
+
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+function addToCart(id){
+
+    if(!cart.includes(id)){
+        cart.push(id);
+
+        localStorage.setItem(
+            "f24Cart",
+            JSON.stringify(cart)
+        );
+
+        updateCounts();
+
+        showToast("Added to enquiry");
+
+    }else{
+
+        showToast("Already in enquiry");
+
+    }
+
+}
+
+
+function renderCart(){
+
+    const container=
+        document.getElementById("cartItems");
+
+    const empty=
+        document.getElementById("emptyCart");
+
+    const actions=
+        document.getElementById("cartActions");
+
+    const list=
+        products.filter(
+            p=>cart.includes(p.id)
+        );
+
+    if(!list.length){
+
+        container.innerHTML="";
+        empty.style.display="block";
+        actions.style.display="none";
+        return;
+
+    }
+
+    empty.style.display="none";
+    actions.style.display="block";
+
+    container.innerHTML=
+        list.map(p=>`
+
+        <div style="
+            display:flex;
+            align-items:center;
+            gap:20px;
+            background:white;
+            border:1px solid var(--border);
+            padding:15px;
+            margin-bottom:12px">
+
+            <img
+                src="${p.image}"
+                style="
+                    width:100px;
+                    height:90px;
+                    object-fit:cover">
+
+            <div style="flex:1">
+
+                <div style="
+                    font-family:var(--serif);
+                    font-size:20px">
+                    ${p.name}
+                </div>
+
+                <small style="color:#777">
+                    ${p.category}
+                </small>
+
+            </div>
+
+            <button
+                class="btn btn-outline"
+                onclick="removeCart(${p.id})">
+                Remove
+            </button>
+
+        </div>
+
+        `).join("");
+
+}
+
+
+function removeCart(id){
+
+    cart=
+        cart.filter(x=>x!==id);
+
+    localStorage.setItem(
+        "f24Cart",
+        JSON.stringify(cart)
+    );
+
+    updateCounts();
+    renderCart();
+
+}
+
+
+function sendCartWhatsApp(){
+
+    const list=
+        products.filter(
+            p=>cart.includes(p.id)
+        );
+
+    let message=
+        "Hello Furniture24,%0A%0AI am interested in:%0A";
+
+    list.forEach(p=>{
+        message+=
+            `• ${encodeURIComponent(p.name)}%0A`;
+    });
+
+    message+=
+        "%0APlease share details and quotation.";
+
+    window.open(
+        `https://wa.me/919307471478?text=${message}`,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   WHATSAPP PRODUCT
+========================================================= */
+
+function whatsappProduct(product){
+
+    const message=
+        `Hello Furniture24,%0A%0AI am interested in ${encodeURIComponent(product.name)}.%0A%0APlease share the price and details.`;
+
+    window.open(
+        `https://wa.me/919307471478?text=${message}`,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   CUSTOM FORM
+========================================================= */
+
+function submitCustom(e){
+
+    e.preventDefault();
+
+    const name=
+        document.getElementById("customName").value;
+
+    const phone=
+        document.getElementById("customPhone").value;
+
+    const type=
+        document.getElementById("customType").value;
+
+    const budget=
+        document.getElementById("customBudget").value;
+
+    const message=
+        document.getElementById("customMessage").value;
+
+    const text=
+        `Hello Furniture24,%0A%0ACustom Furniture Enquiry%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AFurniture: ${encodeURIComponent(type)}%0ABudget: ${encodeURIComponent(budget)}%0ARequirements: ${encodeURIComponent(message)}`;
+
+    window.open(
+        `https://wa.me/919307471478?text=${text}`,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+function submitContact(e){
+
+    e.preventDefault();
+
+    const name=
+        document.getElementById("contactName").value;
+
+    const phone=
+        document.getElementById("contactPhone").value;
+
+    const email=
+        document.getElementById("contactEmail").value;
+
+    const message=
+        document.getElementById("contactMessage").value;
+
+    const text=
+        `Hello Furniture24,%0A%0AWebsite Enquiry%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email)}%0AMessage: ${encodeURIComponent(message)}`;
+
+    window.open(
+        `https://wa.me/919307471478?text=${text}`,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+function toggleFaq(element){
+
+    const item=
+        element.parentElement;
+
+    item.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   COUNTS
+========================================================= */
+
+function updateCounts(){
+
+    document.getElementById("wishCount")
+        .textContent=wishlist.length;
+
+    document.getElementById("cartCount")
+        .textContent=cart.length;
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    const toast=
+        document.getElementById("toast");
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    },2200);
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+function revealElements(){
+
+    setTimeout(()=>{
+
+        const elements=
+            document.querySelectorAll(
+                ".page.active .reveal"
+            );
+
+        const observer=
+            new IntersectionObserver(
+                entries=>{
+                    entries.forEach(entry=>{
+                        if(entry.isIntersecting){
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold:.1
+                }
+            );
+
+        elements.forEach(el=>observer.observe(el));
+
+    },50);
+
+}
+
+
+/* =========================================================
+   KEYBOARD ESCAPE
+========================================================= */
+
+document.addEventListener("keydown",e=>{
+
+    if(e.key==="Escape"){
+
+        document
+            .getElementById("navLinks")
+            ?.classList.remove("open");
+
+    }
+
+});
+
+
+/* =========================================================
+   MAKE FOOTER / NAV LINKS WORK
+========================================================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+    renderHomeProducts();
+    renderShopProducts();
+    updateCounts();
+
+});
+
+
+</script>
+
+</body>
+</html>
